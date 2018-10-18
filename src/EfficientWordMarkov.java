@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 public class EfficientWordMarkov extends BaseWordMarkov {
-
 	private Map<WordGram, ArrayList<String>>myWordgram;
 	
 	public EfficientWordMarkov(int order) {
@@ -24,7 +23,7 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 		myWordgram.clear();
 		
 		for(int index=0; index<myWords.length- myOrder + 1 ;) {
-			WordGram key = new WordGram(myWords,index,myOrder);
+			WordGram key = new WordGram(myWords,index,index + myOrder);
 			 if(!(myWordgram.containsKey(key))) {myWordgram.put(key, new ArrayList<String>()); }
 			 if ( index==myWords.length- myOrder  ) {myWordgram.get(key).add(PSEUDO_EOS);}//
 			 else {myWordgram.get(key).add(myWords[index+myOrder +1 ]);}			
