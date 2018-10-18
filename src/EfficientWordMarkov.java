@@ -26,7 +26,7 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 			WordGram key = new WordGram(myWords,index, myOrder);
 			 if(!(myWordgram.containsKey(key))) {myWordgram.put(key, new ArrayList<String>()); }
 			 if ( index==myWords.length- myOrder  ) {myWordgram.get(key).add(PSEUDO_EOS);}//
-			 else {myWordgram.get(key).add(myWords[index+myOrder +1 ]);}			
+			 else {myWordgram.get(key).add(myWords[index+myOrder  ]);}			
 			index++;
 		}
 	}		
