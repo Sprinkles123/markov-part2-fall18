@@ -16,7 +16,7 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 		myWordgram= new HashMap<WordGram, ArrayList<String>>();//
 	}
 	/**
-	 * Default constructor has order 2
+	 * Default EfficientWordMarkov constructor has order 2
 	 */
 	public EfficientWordMarkov() {
 		this(2);

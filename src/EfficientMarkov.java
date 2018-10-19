@@ -12,6 +12,7 @@ public class EfficientMarkov extends BaseMarkov {
 	/**
 	 * Construct a 	EfficientMarkov object with the specified order.
 	 * Calls the private variable called myMap and initialize with a Hashmap.
+	 * using a string as a key input and an ArrayList of strings as a value input.
 	 * @param order size of this markov generator
 	 */
 	public EfficientMarkov(int order) {
@@ -19,7 +20,7 @@ public class EfficientMarkov extends BaseMarkov {
 		myMap= new HashMap<String,ArrayList<String>>();//
 	}
 	/**
-	 * Default constructor has order 3
+	 * Default EfficientMarkov constructor has order 3
 	 */
 	public EfficientMarkov() {
 		this(3);
