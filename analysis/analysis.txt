@@ -3,6 +3,9 @@ This is the analysis for Markov Part 2, Fall 2018
 Include your name and net id here. Answer the questions from the assignment 
 that are reproduced below
 
+Fritz Thelusca 
+ft34
+
 (1) Determine (from running Benchmark.java) how long it takes for 
 BaseMarkov to generate 2,000, 4,000, 8,000, 16,000, and 32,000 
 random characters using the default file and an order 5 Markov Model. 
@@ -10,6 +13,37 @@ Include these timings in your report.
 The program also generates 4,096 characters using texts that increase in 
 size from 496,768 characters to 4,967,680 characters (10 times the number).  
 Do you the timings support the O(NT) analysis for BaseMarkov?
+
+Starting tests
+
+time	source	#chars
+0.236	507914	2000
+0.473	507914	4000
+0.994	507914	8000
+1.800	507914	16000
+3.620	507914	32000
+
+0.455	507914	4096
+0.913	1015828	4096
+1.378	1523742	4096
+1.849	2031656	4096
+2.343	2539570	4096
+2.785	3047484	4096
+3.271	3555398	4096
+3.761	4063312	4096
+4.209	4571226	4096
+4.663	5079140	4096
+
+Finished tests
+
+It takes BaseMarkov 0.236 seconds to generate 2,000 random characters using the default file and an order 5 Markov Model.
+It takes BaseMarkov 0.473 seconds to generate 4,000 random characters using the default file and an order 5 Markov Model.
+It takes BaseMarkov 0.994 seconds to generate 8,000 random characters using the default file and an order 5 Markov Model.
+It takes BaseMarkov 1.800 seconds to generate 16,000 random characters using the default file and an order 5 Markov Model.
+It takes BaseMarkov 3.620 seconds to generate 32,000 random characters using the default file and an order 5 Markov Model.
+The time does support the timing for the O(NT) analysis for BaseMarkov. 
+As the request for the number of generated random characters doubles, 
+the time it takes for BaseMarkov to generate these characters doubles.
 
 
 
@@ -21,7 +55,115 @@ The program also generates 4,096 characters using texts that increase in
 size from 496,768 characters to 4,967,680 characters (10 times the number).  
 Do you the timings support the O(N+T) analysis for EfficientMarkov?
 
+Starting tests
+
+time	source	#chars
+0.142	507914	2000
+0.124	507914	4000
+0.154	507914	8000
+0.134	507914	16000
+0.161	507914	32000
+
+0.106	507914	4096
+0.242	1015828	4096
+0.371	1523742	4096
+0.520	2031656	4096
+0.549	2539570	4096
+0.714	3047484	4096
+1.276	3555398	4096
+1.822	4063312	4096
+2.023	4571226	4096
+2.321	5079140	4096
+
+Finished tests
+
+It takes EfficientMarkov 0.142 seconds to generate 2,000 random characters using the default file and an order 5 Markov Model.
+It takes EfficientMarkov 0.124 seconds to generate 4,000 random characters using the default file and an order 5 Markov Model.
+It takes EfficientMarkov 0.154 seconds to generate 8,000 random characters using the default file and an order 5 Markov Model.
+It takes EfficientMarkov 0.134 seconds to generate 16,000 random characters using the default file and an order 5 Markov Model.
+It takes EfficientMarkov 0.161 seconds to generate 32,000 random characters using the default file and an order 5 Markov Model.
+The time does support the timing for the O(N+ T) analysis for EfficientMarkov. 
+As the request for the number of generated random characters doubles, 
+the running time  increases by increments proportional to the requested characters. This increment is slight however, so this may be due to random variance.
+However, we do have unexpected values for generating 4,000 and 16,000 random characters as they deviate from the general trend defined above.
+These lower than expected values might be attributed to the fact that Java is run on a virtual machine or the speed of my computer. 
+It is interesting to note that run time for all these different generated cases is centered around approximately 0.1 seconds.
+
 (3)The tests in the class Benchmark use an order-5 Markov Model. 
 Run tests that you think are appropriate to determine if the order of the 
 Markov Model has a significant impact on the running time for BaseMarkov. 
 Explain your reasoning.
+
+Starting tests (int order = 500;)
+
+time	source	#chars
+0.182	507914	2000
+0.358	507914	4000
+0.771	507914	8000
+1.570	507914	16000
+3.181	507914	32000
+
+0.395	507914	4096
+0.748	1015828	4096
+1.174	1523742	4096
+1.611	2031656	4096
+1.944	2539570	4096
+2.339	3047484	4096
+2.859	3555398	4096
+3.297	4063312	4096
+3.831	4571226	4096
+4.054	5079140	4096
+
+Finished tests
+
+Starting tests(int order = 90;)
+
+time	source	#chars
+0.194	507914	2000
+0.392	507914	4000
+0.788	507914	8000
+1.601	507914	16000
+3.146	507914	32000
+
+0.397	507914	4096
+0.821	1015828	4096
+1.208	1523742	4096
+1.788	2031656	4096
+2.171	2539570	4096
+2.533	3047484	4096
+3.131	3555398	4096
+3.523	4063312	4096
+3.999	4571226	4096
+4.603	5079140	4096
+
+Finished tests
+
+Starting tests(int order=70;)
+
+time	source	#chars
+0.215	507914	2000
+0.430	507914	4000
+0.698	507914	8000
+1.442	507914	16000
+3.347	507914	32000
+
+0.440	507914	4096
+0.884	1015828	4096
+1.297	1523742	4096
+1.677	2031656	4096
+2.054	2539570	4096
+2.707	3047484	4096
+4.473	3555398	4096
+4.890	4063312	4096
+3.779	4571226	4096
+4.260	5079140	4096
+
+Finished tests
+
+
+In order to determine if the order of the Markov Model has a significant impact on the running time for BaseMarkov.
+I ran BaseMarkov multiple times using difference values for the int order instance variable. I used the values 5, 70, 90 and 500.
+I noticed a trend, as the order of the Markov Model increases the running time for BaseMarkov tends to remain consistent.
+The order of the Markov Model does not has a significant impact on the running time for BaseMarkov,
+ as the order increases the running time for BaseMorkov remains relatively constant.
+This is because BaseMorkov has an O(N) complexity so changing the number of initial order of Markov wouldn't affect the run time to badly.
